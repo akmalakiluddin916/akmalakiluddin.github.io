@@ -55,13 +55,67 @@
         }
         /* Style for placeholder images */
         .image-placeholder {
-            background-color: #ecf0f1;
-            border: 2px dashed #bdc3c7;
-            padding: 20px;
+            background-color: transparent;
             text-align: center;
-            color: #7f8c8d;
-            border-radius: 5px;
-            margin: 10px 0;
+            margin: 15px 0;
+        }
+
+        /* --- GAYA UNTUK BAR KEMAJUAN SKILL --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .skill-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .skill-category {
+            font-size: 1.2em;
+            color: #1e293b;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        .skill-name { color: #334155; }
+        .skill-level {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.75em;
+            letter-spacing: 0.5px;
+        }
+        .level-beginner { color: #f59e0b; }      
+        .level-intermediate { color: #2563eb; }  
+        .level-proficient { color: #10b981; }    
+        
+        .progress-bar-bg {
+            background-color: #e2e8f0;
+            height: 6px;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .progress-bar-fill {
+            background-color: #2563eb; 
+            height: 100%;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -78,7 +132,8 @@
             
             <div style="flex: 1; min-width: 250px;">
                 <h2>About Me</h2>
-<p>Hello! My name is <strong>MUHAMMAD AKMAL AKILUDDIN BIN MOHD NAWI</strong>, I am <strong>23</strong> years old, and I am from <strong>Pahang</strong>. I am an Information Technology student at Universiti Sultan Zainal Abidin (UniSZA), passionate about bridging the gap between physical hardware and secure web backends. With a strong foundation in full-stack web development using the Laravel framework and PHP, alongside hands-on experience integrating IoT devices like the ESP32-CAM, I thrive on building systems that are both highly functional and practical. I am currently focusing my technical journey toward application security to ensure the digital solutions of tomorrow remain resilient against evolving threats.</p>            </div>
+                <p>Hello! My name is <strong>MUHAMMAD AKMAL AKILUDDIN BIN MOHD NAWI</strong>, I am <strong>23</strong> years old, and I am from <strong>Pahang</strong>. I am an Information Technology student at Universiti Sultan Zainal Abidin (UniSZA), passionate about bridging the gap between physical hardware and secure web backends. With a strong foundation in full-stack web development using the Laravel framework and PHP, alongside hands-on experience integrating IoT devices like the ESP32-CAM, I thrive on building systems that are both highly functional and practical. I am currently focusing my technical journey toward application security to ensure the digital solutions of tomorrow remain resilient against evolving threats.</p>
+            </div>
         </div>
     </div>
 
@@ -90,20 +145,105 @@
 
     <div class="section-card">
         <h2>B. Personal Skills Assessment</h2>
-        <p><span class="highlight">Current Technical Skills:</span></p>
-        <ul>
-            <li><strong>Full-Stack Development:</strong> PHP, Laravel framework, SQL database architecture.</li>
-            <li><strong>IoT & Hardware Integration:</strong> ESP32-CAM, Arduino, Wemos D1, servo motor controls.</li>
-            <li><strong>Enterprise Web Services:</strong> WSDL, SOAP, XML, Java DOM parsing.</li>
-            <li><strong>System Simulation & AI:</strong> Wokwi platform, Roboflow for image dataset processing.</li>
-        </ul>
-        <p><span class="highlight">Soft Skills:</span></p>
-        <ul>
-            <li><strong>Client Communication & Project Management:</strong> Demonstrated through community digital transformation projects (SULAM), coordinating with local SME owners to implement practical tech solutions.</li>
-            <li><strong>Technical Collaboration:</strong> Regular coordination with academic supervisors to align project milestones and system logic.</li>
-        </ul>
-        <p><span class="highlight">Gap Analysis (Current vs. Industry Requirements):</span></p>
-        <p>While my foundation in backend architecture and hardware integration is strong, enterprise security roles require deeper knowledge of specialized testing frameworks (like SAST/DAST) and advanced cryptographic implementation for secure APIs.</p>
+        <p>An honest comparison of my current skillset against the requirements of a Security-focused Software Developer.</p>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-category">Technical Skills</div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Full-Stack (PHP, Laravel, SQL)</span>
+                        <span class="skill-level level-proficient">Proficient</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">IoT & Hardware (ESP32-CAM, Arduino)</span>
+                        <span class="skill-level level-proficient">Proficient</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">System Simulation (Wokwi, Roboflow)</span>
+                        <span class="skill-level level-intermediate">Intermediate</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 65%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Enterprise Web Services (XML, SOAP)</span>
+                        <span class="skill-level level-intermediate">Intermediate</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Security Testing (SAST/DAST)</span>
+                        <span class="skill-level level-beginner">Beginner</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 25%;"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-category">Soft Skills & Languages</div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Client Communication & Management</span>
+                        <span class="skill-level level-proficient">Proficient</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Technical Collaboration</span>
+                        <span class="skill-level level-proficient">Proficient</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Problem Solving & Troubleshooting</span>
+                        <span class="skill-level level-intermediate">Intermediate</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Malay (Native) / English (Professional)</span>
+                        <span class="skill-level level-proficient">Proficient</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 25px;">
+            <p><span class="highlight">Additional Expertise:</span></p>
+            <ul>
+                <li><strong>Digital Transformation:</strong> Experience in creating digital marketing assets and setting up Cash on Delivery (COD) operational flows for SMEs.</li>
+                <li><strong>Enterprise Data Processing:</strong> Knowledgeable in XML processing, XPath, and Java DOM parsing for managing web services architecture.</li>
+                <li><strong>Hardware Troubleshooting:</strong> Hands-on experience configuring OLED displays and resolving circuit wiring issues for IoT systems.</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 25px; padding: 15px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; font-size: 0.85em; text-transform: uppercase; color: #c2410c; letter-spacing: 1px;">Skill Gaps to Address</h4>
+            <p style="margin: 0; font-size: 0.9em; color: #7c2d12; line-height: 1.5;">
+                While my foundation in backend architecture and hardware integration is strong, enterprise security roles require deeper knowledge of specialized testing frameworks (like SAST/DAST) and advanced cryptographic implementation for secure APIs.
+            </p>
+        </div>
     </div>
 
     <div class="section-card">
@@ -125,30 +265,15 @@
         <ul>
             <li>
                 <strong>Automated Parking Access System (Final Year Project):</strong> Developed a proof-of-concept utilizing License Plate Optical Character Recognition (LPOCR). Integrated ESP32-CAM hardware with a Laravel backend, securely managing a <code>subscriptions</code> table.
-                <div class="image-placeholder">
-                   <img src="Framework.png" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
-                  <div class="image-placeholder">
-                   <img src="Flowchart.png" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
-                  <div class="image-placeholder">
-                   <img src="CD.png" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
-                  <div class="image-placeholder">
-                   <img src="ERD.jpg" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
-                  <div class="image-placeholder">
-                   <img src="DFD.png" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
-                  <div class="image-placeholder">
-                   <img src="Dataset.png" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
-                  <div class="image-placeholder">
-                   <img src="MachineLearning.png" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
-                <div class="image-placeholder">
-                  <img src="Snippet.png" alt="Architecture Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;">
-                </div>
+                
+                <div class="image-placeholder"><img src="Framework.png" alt="Framework Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                <div class="image-placeholder"><img src="Flowchart.png" alt="System Flowchart" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                <div class="image-placeholder"><img src="CD.png" alt="Context Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                <div class="image-placeholder"><img src="ERD.jpg" alt="Entity Relationship Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                <div class="image-placeholder"><img src="DFD.png" alt="Data Flow Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                <div class="image-placeholder"><img src="Dataset.png" alt="Roboflow Dataset" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                <div class="image-placeholder"><img src="MachineLearning.png" alt="Machine Learning Logic" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                <div class="image-placeholder"><img src="Snippet.png" alt="Code Snippet" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
             </li>
             <li><strong>Community Digital Transformation (SULAM):</strong> Executed a 14-week project modernizing operations for local SMEs (Kedai Depan Koloh Nengoh) by developing digital marketing assets and a Cash on Delivery system.</li>
         </ul>
