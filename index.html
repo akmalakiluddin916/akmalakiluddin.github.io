@@ -3,39 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My E-Portfolio</title>
+    <title>Muhammad Akmal Akiluddin | E-Portfolio</title>
     <style>
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0; 
+            padding: 0;
             background-color: #f4f7f6;
         }
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #2c3e50;
+
+        .hero {
+            background-color: #2c3e50; /
             color: white;
-            border-radius: 8px 8px 0 0;
+            text-align: center;
+            padding: 60px 20px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2980b9; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
             margin-bottom: 20px;
         }
-        header h1 {
+        .hero h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.2em;
+            letter-spacing: 1px;
         }
-        header p {
-            font-size: 1.2em;
+        .hero .role {
+            color: #ecf0f1;
+            font-size: 1.1em;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .hero .bio {
+            max-width: 800px;
+            font-size: 0.95em;
+            line-height: 1.6;
             color: #ecf0f1;
         }
+
+      
+        nav {
+            background-color: #1a252f;
+            position: sticky;
+            top: 0;
+            z-index: 1000; 
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav a:hover {
+            color: #3498db; 
+        }
+
+        
+        .main-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Gaya Kotak Seksyen sedia ada */
         .section-card {
             background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            scroll-margin-top: 80px; 
         }
         h2 {
             color: #2980b9;
@@ -43,24 +100,17 @@
             padding-bottom: 10px;
             margin-top: 0;
         }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        .highlight {
-            color: #2c3e50;
-            font-weight: bold;
-        }
-        /* Style for placeholder images */
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        .highlight { color: #2c3e50; font-weight: bold; }
+        
         .image-placeholder {
             background-color: transparent;
             text-align: center;
             margin: 15px 0;
         }
 
-        /* --- GAYA UNTUK BAR KEMAJUAN SKILL --- */
+      
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -72,7 +122,6 @@
             border: 1px solid #e2e8f0;
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .skill-category {
             font-size: 1.2em;
@@ -80,9 +129,7 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
-        .skill-item {
-            margin-bottom: 15px;
-        }
+        .skill-item { margin-bottom: 15px; }
         .skill-header {
             display: flex;
             justify-content: space-between;
@@ -109,190 +156,231 @@
             width: 100%;
         }
         .progress-bar-fill {
-            background-color: #2563eb; 
+            background-color: #2980b9; 
             height: 100%;
             border-radius: 10px;
         }
         
+        
+        .contact-link {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
         @media (max-width: 768px) {
             .skills-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.5em; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>E-Portfolio(CSA30203)</h1>
-        <p>Target Role: Software Developer</p>
+    <header class="hero" id="profile">
+        <img src="Profile.jpg" alt="Muhammad Akmal Akiluddin">
+        <h1>MUHAMMAD AKMAL AKILUDDIN BIN MOHD NAWI</h1>
+        <div class="role">Software Developer (Security-focused)</div>
+        <div class="bio">
+            I am a 23-year-old Information Technology student from Pahang, currently studying at Universiti Sultan Zainal Abidin (UniSZA). Passionate about bridging the gap between physical hardware and secure web backends, I have a strong foundation in full-stack web development using the Laravel framework and PHP, alongside hands-on experience integrating IoT devices like the ESP32-CAM. I am currently focusing my technical journey toward application security to ensure the digital solutions of tomorrow remain resilient against evolving threats.
+        </div>
     </header>
 
-    <div class="section-card">
-        <div style="display: flex; align-items: center; gap: 25px; flex-wrap: wrap;">
-            <img src="Profile.jpg" alt="My Profile Picture" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #2980b9; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <nav>
+        <a href="#profile">Profile</a>
+        <a href="#career">Career</a>
+        <a href="#skills">Skills</a>
+        <a href="#plan">Plan</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#reflection">Reflection</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main class="main-container">
+
+        <div id="career" class="section-card">
+            <h2>A. Career Exploration</h2>
+            <p><span class="highlight">Role Overview:</span> A Security-focused Software Developer is responsible for writing secure code, integrating security protocols during the development lifecycle, and safeguarding applications against vulnerabilities.</p>
+            <p><span class="highlight">Relevance to Modern Cybersecurity:</span> As IoT devices and web applications scale, securing backend logic and data transmission is critical. For example, ensuring that an automated parking system's hardware securely communicates with a central database without data interception is a foundational cybersecurity requirement.</p>
+        </div>
+
+        <div id="skills" class="section-card">
+            <h2>B. Personal Skills Assessment</h2>
+            <p>An honest comparison of my current skillset against the requirements of a Security-focused Software Developer.</p>
             
-            <div style="flex: 1; min-width: 250px;">
-                <h2>About Me</h2>
-                <p>Hello! My name is <strong>MUHAMMAD AKMAL AKILUDDIN BIN MOHD NAWI</strong>, I am <strong>23</strong> years old, and I am from <strong>Pahang</strong>. I am an Information Technology student at Universiti Sultan Zainal Abidin (UniSZA), passionate about bridging the gap between physical hardware and secure web backends. With a strong foundation in full-stack web development using the Laravel framework and PHP, alongside hands-on experience integrating IoT devices like the ESP32-CAM, I thrive on building systems that are both highly functional and practical. I am currently focusing my technical journey toward application security to ensure the digital solutions of tomorrow remain resilient against evolving threats.</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-category">Technical Skills</div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Full-Stack (PHP, Laravel, SQL)</span>
+                            <span class="skill-level level-proficient">Proficient</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">IoT & Hardware (ESP32-CAM, Arduino)</span>
+                            <span class="skill-level level-proficient">Proficient</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">System Simulation (Wokwi, Roboflow)</span>
+                            <span class="skill-level level-intermediate">Intermediate</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 65%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Enterprise Web Services (XML, SOAP)</span>
+                            <span class="skill-level level-intermediate">Intermediate</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Security Testing (SAST/DAST)</span>
+                            <span class="skill-level level-beginner">Beginner</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 25%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-category">Soft Skills & Languages</div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Client Communication & Management</span>
+                            <span class="skill-level level-proficient">Proficient</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Technical Collaboration</span>
+                            <span class="skill-level level-proficient">Proficient</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Problem Solving & Troubleshooting</span>
+                            <span class="skill-level level-intermediate">Intermediate</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%;"></div></div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Malay (Native) / English (Professional)</span>
+                            <span class="skill-level level-proficient">Proficient</span>
+                        </div>
+                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 25px;">
+                <p><span class="highlight">Additional Expertise:</span></p>
+                <ul>
+                    <li><strong>Digital Transformation:</strong> Experience in creating digital marketing assets and setting up Cash on Delivery (COD) operational flows for SMEs.</li>
+                    <li><strong>Enterprise Data Processing:</strong> Knowledgeable in XML processing, XPath, and Java DOM parsing for managing web services architecture.</li>
+                    <li><strong>Hardware Troubleshooting:</strong> Hands-on experience configuring OLED displays and resolving circuit wiring issues for IoT systems.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 25px; padding: 15px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px;">
+                <h4 style="margin: 0 0 10px 0; font-size: 0.85em; text-transform: uppercase; color: #c2410c; letter-spacing: 1px;">Skill Gaps to Address</h4>
+                <p style="margin: 0; font-size: 0.9em; color: #7c2d12; line-height: 1.5;">
+                    While my foundation in backend architecture and hardware integration is strong, enterprise security roles require deeper knowledge of specialized testing frameworks (like SAST/DAST) and advanced cryptographic implementation for secure APIs.
+                </p>
             </div>
         </div>
-    </div>
 
-    <div class="section-card">
-        <h2>A. Career Exploration</h2>
-        <p><span class="highlight">Role Overview:</span> A Security-focused Software Developer is responsible for writing secure code, integrating security protocols during the development lifecycle, and safeguarding applications against vulnerabilities.</p>
-        <p><span class="highlight">Relevance to Modern Cybersecurity:</span> As IoT devices and web applications scale, securing backend logic and data transmission is critical. For example, ensuring that an automated parking system's hardware securely communicates with a central database without data interception is a foundational cybersecurity requirement.</p>
-    </div>
-
-    <div class="section-card">
-        <h2>B. Personal Skills Assessment</h2>
-        <p>An honest comparison of my current skillset against the requirements of a Security-focused Software Developer.</p>
-        
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-category">Technical Skills</div>
-                
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Full-Stack (PHP, Laravel, SQL)</span>
-                        <span class="skill-level level-proficient">Proficient</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">IoT & Hardware (ESP32-CAM, Arduino)</span>
-                        <span class="skill-level level-proficient">Proficient</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">System Simulation (Wokwi, Roboflow)</span>
-                        <span class="skill-level level-intermediate">Intermediate</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 65%;"></div></div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Enterprise Web Services (XML, SOAP)</span>
-                        <span class="skill-level level-intermediate">Intermediate</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%;"></div></div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Security Testing (SAST/DAST)</span>
-                        <span class="skill-level level-beginner">Beginner</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 25%;"></div></div>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-category">Soft Skills & Languages</div>
-                
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Client Communication & Management</span>
-                        <span class="skill-level level-proficient">Proficient</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Technical Collaboration</span>
-                        <span class="skill-level level-proficient">Proficient</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Problem Solving & Troubleshooting</span>
-                        <span class="skill-level level-intermediate">Intermediate</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%;"></div></div>
-                </div>
-                
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Malay (Native) / English (Professional)</span>
-                        <span class="skill-level level-proficient">Proficient</span>
-                    </div>
-                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
-                </div>
-            </div>
-        </div>
-
-        <div style="margin-top: 25px;">
-            <p><span class="highlight">Additional Expertise:</span></p>
+        <div id="plan" class="section-card">
+            <h2>C. Career Development Plan</h2>
+            <p><span class="highlight">Timeline & Goals:</span></p>
             <ul>
-                <li><strong>Digital Transformation:</strong> Experience in creating digital marketing assets and setting up Cash on Delivery (COD) operational flows for SMEs.</li>
-                <li><strong>Enterprise Data Processing:</strong> Knowledgeable in XML processing, XPath, and Java DOM parsing for managing web services architecture.</li>
-                <li><strong>Hardware Troubleshooting:</strong> Hands-on experience configuring OLED displays and resolving circuit wiring issues for IoT systems.</li>
+                <li><strong>Short-term (2 Years):</strong> Secure a role as a Junior Backend/Security Developer, focusing on securing enterprise APIs and IoT data streams.</li>
+                <li><strong>Long-term (5 Years):</strong> Transition into a Lead Application Security Engineer, managing secure infrastructure for large-scale fintech or smart-city applications.</li>
+            </ul>
+            <p><span class="highlight">Action Plan:</span></p>
+            <ul>
+                <li><strong>Certifications:</strong> Obtain CompTIA Security+ within the next 13 months to bridge the gap between application development and industry security standards.</li>
+                <li><strong>Tools to Master:</strong> Deepen expertise in network analysis tools like Wireshark and vulnerability scanners like OWASP ZAP.</li>
             </ul>
         </div>
 
-        <div style="margin-top: 25px; padding: 15px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px;">
-            <h4 style="margin: 0 0 10px 0; font-size: 0.85em; text-transform: uppercase; color: #c2410c; letter-spacing: 1px;">Skill Gaps to Address</h4>
-            <p style="margin: 0; font-size: 0.9em; color: #7c2d12; line-height: 1.5;">
-                While my foundation in backend architecture and hardware integration is strong, enterprise security roles require deeper knowledge of specialized testing frameworks (like SAST/DAST) and advanced cryptographic implementation for secure APIs.
-            </p>
+        <div id="evidence" class="section-card">
+            <h2>D. Evidence of Learning</h2>
+            <ul>
+                <li>
+                    <strong>Automated Parking Access System (Final Year Project):</strong> Developed a proof-of-concept utilizing License Plate Optical Character Recognition (LPOCR). Integrated ESP32-CAM hardware with a Laravel backend, securely managing a <code>subscriptions</code> table.
+                    
+                    <div class="image-placeholder"><img src="Framework.png" alt="Framework Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                    <div class="image-placeholder"><img src="Flowchart.png" alt="System Flowchart" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                    <div class="image-placeholder"><img src="CD.png" alt="Context Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                    <div class="image-placeholder"><img src="ERD.jpg" alt="Entity Relationship Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                    <div class="image-placeholder"><img src="DFD.png" alt="Data Flow Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                    <div class="image-placeholder"><img src="Dataset.png" alt="Roboflow Dataset" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                    <div class="image-placeholder"><img src="MachineLearning.png" alt="Machine Learning Logic" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                    <div class="image-placeholder"><img src="Snippet.png" alt="Code Snippet" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
+                </li>
+                <li><strong>Community Digital Transformation (SULAM):</strong> Executed a 14-week project modernizing operations for local SMEs (Kedai Depan Koloh Nengoh) by developing digital marketing assets and a Cash on Delivery system.</li>
+            </ul>
         </div>
-    </div>
 
-    <div class="section-card">
-        <h2>C. Career Development Plan</h2>
-        <p><span class="highlight">Timeline & Goals:</span></p>
-        <ul>
-            <li><strong>Short-term (2 Years):</strong> Secure a role as a Junior Backend/Security Developer, focusing on securing enterprise APIs and IoT data streams.</li>
-            <li><strong>Long-term (5 Years):</strong> Transition into a Lead Application Security Engineer, managing secure infrastructure for large-scale fintech or smart-city applications.</li>
-        </ul>
-        <p><span class="highlight">Action Plan:</span></p>
-        <ul>
-            <li><strong>Certifications:</strong> Obtain CompTIA Security+ within the next 13 months to bridge the gap between application development and industry security standards.</li>
-            <li><strong>Tools to Master:</strong> Deepen expertise in network analysis tools like Wireshark and vulnerability scanners like OWASP ZAP.</li>
-        </ul>
-    </div>
+        <div id="reflection" class="section-card">
+            <h2>E. Personal Reflection: TNG Digital</h2>
+            <p><span class="highlight">Why I want to work for TNG Digital:</span></p>
+            <p>TNG Digital manages massive fintech ecosystems and drives automated smart parking access across Malaysia. This aligns perfectly with my hands-on experience building automated parking logic and secure databases.</p>
+            
+            <p><span class="highlight">What value I can bring & Why you should hire me:</span></p>
+            <p>Building an LPOCR parking system provided me with a practical understanding of the logistical and technical challenges in the smart parking sector. My experience optimizing backend web services and managing enterprise data structures translates directly to the skills needed to maintain high-volume payment gateways. Furthermore, my community-based projects with local SMEs demonstrate my ability to implement tech solutions that positively impact end-users.</p>
+            
+            <p><span class="highlight">Strengths and Weaknesses:</span></p>
+            <ul>
+                <li><strong>Strengths:</strong> Strong adaptability between hardware (IoT) and software (backend frameworks), allowing me to understand the full lifecycle of a system.</li>
+                <li><strong>Weaknesses:</strong> I am currently expanding my knowledge of enterprise-scale cloud deployment, which I am actively addressing through planned AWS learning paths.</li>
+            </ul>
+        </div>
 
-    <div class="section-card">
-        <h2>D. Evidence of Learning</h2>
-        <ul>
-            <li>
-                <strong>Automated Parking Access System (Final Year Project):</strong> Developed a proof-of-concept utilizing License Plate Optical Character Recognition (LPOCR). Integrated ESP32-CAM hardware with a Laravel backend, securely managing a <code>subscriptions</code> table.
-                
-                <div class="image-placeholder"><img src="Framework.png" alt="Framework Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-                <div class="image-placeholder"><img src="Flowchart.png" alt="System Flowchart" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-                <div class="image-placeholder"><img src="CD.png" alt="Context Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-                <div class="image-placeholder"><img src="ERD.jpg" alt="Entity Relationship Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-                <div class="image-placeholder"><img src="DFD.png" alt="Data Flow Diagram" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-                <div class="image-placeholder"><img src="Dataset.png" alt="Roboflow Dataset" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-                <div class="image-placeholder"><img src="MachineLearning.png" alt="Machine Learning Logic" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-                <div class="image-placeholder"><img src="Snippet.png" alt="Code Snippet" style="max-width: 100%; border-radius: 5px; border: 1px solid #bdc3c7;"></div>
-            </li>
-            <li><strong>Community Digital Transformation (SULAM):</strong> Executed a 14-week project modernizing operations for local SMEs (Kedai Depan Koloh Nengoh) by developing digital marketing assets and a Cash on Delivery system.</li>
-        </ul>
-    </div>
+        <div id="contact" class="section-card">
+            <h2>F. Contact Me</h2>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:akmalakiluddin@example.com" class="contact-link">akmalakiluddin916@gmail.com</a> <em></em></li>
+                <li><strong>Phone:</strong> <a href="wa.link/khlwll" target="_blank" class="contact-link">012-9636481</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/akmal-akiluddin-6102aa403?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="contact-link">Akmal Akiluddin</a></li>
+                <li><strong>Location:</strong> Pahang, Malaysia</li>
+            </ul>
+        </div>
 
-    <div class="section-card">
-        <h2>E. Personal Reflection: TNG Digital</h2>
-        <p><span class="highlight">Why I want to work for TNG Digital:</span></p>
-        <p>TNG Digital manages massive fintech ecosystems and drives automated smart parking access across Malaysia. This aligns perfectly with my hands-on experience building automated parking logic and secure databases.</p>
-        
-        <p><span class="highlight">What value I can bring & Why you should hire me:</span></p>
-        <p>Building an LPOCR parking system provided me with a practical understanding of the logistical and technical challenges in the smart parking sector. My experience optimizing backend web services and managing enterprise data structures translates directly to the skills needed to maintain high-volume payment gateways. Furthermore, my community-based projects with local SMEs demonstrate my ability to implement tech solutions that positively impact end-users.</p>
-        
-        <p><span class="highlight">Strengths and Weaknesses:</span></p>
-        <ul>
-            <li><strong>Strengths:</strong> Strong adaptability between hardware (IoT) and software (backend frameworks), allowing me to understand the full lifecycle of a system.</li>
-            <li><strong>Weaknesses:</strong> I am currently expanding my knowledge of enterprise-scale cloud deployment, which I am actively addressing through planned AWS learning paths.</li>
-        </ul>
-    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Muhammad Akmal Akiluddin Bin Mohd Nawi. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
